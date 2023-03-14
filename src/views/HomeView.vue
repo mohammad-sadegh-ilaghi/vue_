@@ -17,7 +17,7 @@
 
 <!-- script setup pattern -->
 <script setup>
-import { ref, reactive, computed } from 'vue';
+import { ref, reactive, computed, watch } from 'vue';
 
     // ref data
     const counter_noneReactive = ref(0), 
@@ -27,6 +27,11 @@ import { ref, reactive, computed } from 'vue';
       count: 0,
       title: 'My Counter'
     });
+
+    // watch 
+    watch(() => countData.count, (newCount, OldCount)=>{
+      console.log(`old count is ${OldCount} and new count is ${newCount}`);
+    })
 
     // computed in vue
     const oddOrEven = computed(()=>{
